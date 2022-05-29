@@ -26,6 +26,7 @@ class LosovaciZarizeniTest {
     List<Integer> vylosovanaCisla = losovaciZarizeni.losujSazkuHlavniTahDuplicitni();
     testujSazkuHlavniTah(vylosovanaCisla);
   }
+  //schválně napsané, aby selhal
 
   @RepeatedTest(100)
   void losujSudaCislaFilter() {

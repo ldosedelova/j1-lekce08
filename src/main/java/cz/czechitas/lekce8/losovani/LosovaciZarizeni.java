@@ -35,7 +35,7 @@ public class LosovaciZarizeni {
   public List<Integer> losujSazkuHlavniTah() {
     return random.ints(1, 49 + 1) // 49 + 1, protože parametr horní hranice musí být mimo rozsah vracených hodnot.
             .distinct()
-            .limit(6)
+            .limit(6) //nastavení počtu,až po odstranění duplicitních čísel, abych neměla menší počet než 6
             .boxed()
             .collect(Collectors.toList());
   }
@@ -65,7 +65,7 @@ public class LosovaciZarizeni {
    */
   public IntStream losujSeznamSudychCisel(int minimum, int maximum, int pocet) {
     return random.ints(pocet, minimum, maximum)
-            .filter(cislo -> cislo % 2 == 0);
+            .filter(cislo -> cislo % 2 == 0); //vyhodím lichý čísla
   }
 
   /**
@@ -79,8 +79,8 @@ public class LosovaciZarizeni {
    * @return Stream vylosovaných čísel.
    */
   public IntStream losujSeznamSudychCiselJakoMapa(int minimum, int maximum, int pocet) {
-    return random.ints(pocet, minimum / 2, maximum / 2)
-            .map(cislo -> cislo * 2);
+    return random.ints(pocet, minimum / 2, maximum / 2) //musím oopravit rozsah protože násobím 2
+            .map(cislo -> cislo * 2); //.map transformuje na jiný objekt a vytvoří jiný stream oobjektů
   }
 
   /**
